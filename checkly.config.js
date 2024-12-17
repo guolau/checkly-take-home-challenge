@@ -1,4 +1,5 @@
 import { defineConfig } from 'checkly'
+import { Frequency } from 'checkly/constructs'
 
 /**
  * See https://www.checklyhq.com/docs/cli/project-structure/
@@ -15,7 +16,7 @@ const config = defineConfig({
   /* Sets default values for Checks */
   checks: {
     /* A default for how often your Check should run in minutes */
-    frequency: 10,
+    frequency: Frequency.EVERY_24H,
     /* Checkly data centers to run your Checks as monitors */
     locations: ['us-east-1', 'eu-west-1'],
     /* An optional array of tags to organize your Checks */
