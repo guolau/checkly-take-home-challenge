@@ -9,11 +9,11 @@ test('test', async ({ page }) => {
   await page.getByRole('link', { name: ' Products' }).click();
   const searchBar = page.getByPlaceholder('Search Product');
   expect(searchBar).toBeVisible;
-  const blueTopInfoContainer = page.locator('div.productinfo a[data-product-id="1"]')
-  await blueTopInfoContainer.hover();
-  const addBlueTopButton = page.locator('div.overlay-content a[data-product-id="1"]')
-  await addBlueTopButton.waitFor({ state: "visible" })
-  await addBlueTopButton.click()
+  const addBlueTopButton = page.locator('div.productinfo a[data-product-id="1"]')
+  await addBlueTopButton.hover();
+  const addBlueTopOverlayButton = page.locator('div.overlay-content a[data-product-id="1"]')
+  await addBlueTopOverlayButton.waitFor({ state: "visible" })
+  await addBlueTopOverlayButton.click()
   const modalHeading = page.getByRole("heading", { name: "Added!"});
   expect(modalHeading).toBeVisible;
   await page.getByRole('button', { name: 'Continue Shopping' }).click();
