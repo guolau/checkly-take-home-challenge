@@ -1,5 +1,5 @@
 import { defineConfig } from 'checkly'
-import { Frequency } from 'checkly/constructs'
+import { Frequency, AlertEscalationBuilder } from 'checkly/constructs'
 
 /**
  * See https://www.checklyhq.com/docs/cli/project-structure/
@@ -25,6 +25,8 @@ const config = defineConfig({
      * See https://www.checklyhq.com/docs/cli/npm-packages/
      */
     runtimeId: '2024.02',
+    /* All checks will have this alert escalation policy defined */
+    alertEscalationPolicy: AlertEscalationBuilder.runBasedEscalation(1),
     /* A glob pattern that matches the Checks inside your repo, see https://www.checklyhq.com/docs/cli/using-check-test-match/ */
     checkMatch: '**/__checks__/**/*.check.js',
     /* Global configuration option for Playwright-powered checks. See https://www.checklyhq.com/docs/browser-checks/playwright-test/#global-configuration */

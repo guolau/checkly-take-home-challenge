@@ -1,4 +1,5 @@
 import { CheckGroup } from 'checkly/constructs'
+import { emailChannel } from '../alert-channels.js'
 
 // Groups documentation: https://www.checklyhq.com/docs/groups
 
@@ -12,6 +13,7 @@ export const playwrightGroup = new CheckGroup('playwright-group', {
   environmentVariables: [],
   concurrency: 10,
   runParallel: true,
+  alertChannels: [emailChannel],
   browserChecks: {
     // Automatically include all your Playwright tests
     testMatch: './playwright/*.spec.js' 
@@ -34,4 +36,5 @@ export const jsonmapApiGroup = new CheckGroup('jsonmap-api-group', {
   apiCheckDefaults: {},
   concurrency: 10,
   runParallel: true,
+  alertChannels: [emailChannel],
 })
