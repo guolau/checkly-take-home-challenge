@@ -1,4 +1,5 @@
 import { ApiCheck, AssertionBuilder } from 'checkly/constructs'
+import { jsonmapApiGroup } from './groups.check.js'
 import fs from 'node:fs'
 import path from 'node:path'
 import { URL } from 'node:url'
@@ -19,6 +20,7 @@ try {
 
     new ApiCheck(checkId, {
       name: checkName,
+      group: jsonmapApiGroup,
       request: {
         url: user.profile_url,
         method: 'GET',
